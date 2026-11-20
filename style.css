@@ -213,7 +213,6 @@ textarea:focus-visible {
     will-change: width, height, left, top;
 }
 
-/* Styling Music Player Card ("My Favorite Song") & CD Animation */
 #music-section {
     max-width: 600px;
     margin: auto;
@@ -341,7 +340,6 @@ textarea:focus-visible {
     font-size: 0.85rem;
 }
 
-/* Playlist Drawer Terbuka ke Bawah dan Menggeser Konten */
 .playlist-drawer {
     position: relative;
     width: 100%;
@@ -1072,7 +1070,6 @@ footer {
     }
 }
 
-/* ===== Perbaikan & fitur baru ===== */
 #custom-cursor.big {
     width: 44px;
     height: 44px;
@@ -1151,7 +1148,6 @@ footer {
     }
 }
 
-/* ===== Bar statistik ===== */
 .statbar {
     margin-top: 16px;
     padding: 24px;
@@ -1212,7 +1208,6 @@ footer {
     font-weight: 650;
 }
 
-/* ===== Sertifikat di modal ===== */
 #sImg {
     width: 100%;
     max-height: 46vh;
@@ -1226,7 +1221,6 @@ footer {
     display: none;
 }
 
-/* ===== Perbaikan tampilan HP ===== */
 @media (max-width: 600px) {
     .stage {
         padding: 0 16px calc(env(safe-area-inset-bottom, 0px) + 110px);
@@ -1326,7 +1320,6 @@ footer {
     }
 }
 
-/* ===== Kartu grup (Pendidikan & Hobi) + daftar di modal ===== */
 .card .more {
     display: inline-block;
     margin-top: 10px;
@@ -1385,12 +1378,10 @@ footer {
     cursor: default;
 }
 
-/* Fokus posisi atas dokumen pada thumbnail kartu CV */
 .card[data-c="CV"] .th img {
     object-position: top center;
 }
 
-/* ===== Carousel sertifikat (bisa digeser) ===== */
 .card[data-c="Sertifikat"] .th img {
     object-position: top center;
 }

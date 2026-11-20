@@ -58,7 +58,6 @@ function togglePlay() {
       cdDisc.classList.add('playing');
       isPlaying = true;
     }).catch(() => {
-      // Ditangani secara senyap tanpa alert popup mengganggu
     });
   }
 }
@@ -104,7 +103,6 @@ playlistToggleBtn.onclick = (e) => {
   musicWidget.classList.toggle('playlist-open');
 };
 
-/* Web Audio API - Subtle Click Sound Effect */
 function playClickSound() {
   try {
     window._ac = window._ac || new (window.AudioContext || window.webkitAudioContext)(); const audioCtx = window._ac;
@@ -128,7 +126,6 @@ document.addEventListener('click', e => {
   }
 });
 
-/* Custom Glowing Cursor Handler */
 const cursor = $('#custom-cursor');
 let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
 addEventListener('pointermove', e => {
@@ -143,12 +140,11 @@ addEventListener('pointermove', e => {
   requestAnimationFrame(renderCursor);
 })();
 
-/* Foto Profil Handler */
 const me = $('#me');
 const defaultAvatar = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a84ff"/><stop offset="1" stop-color="#bf5af2"/></linearGradient></defs><rect width="400" height="500" fill="url(#g)"/><circle cx="200" cy="190" r="78" fill="rgba(255,255,255,.85)"/><path d="M60 500c0-110 62-170 140-170s140 60 140 170z" fill="rgba(255,255,255,.85)"/></svg>');
 me.src = 'DSCF2403.jpg';
 me.onerror = () => { me.src = defaultAvatar; };
-/* Foto dikunci: pengunjung tidak bisa mengganti foto. */
+
 try { localStorage.removeItem('foto'); } catch (e) { }
 me.draggable = false;
 ['contextmenu', 'dragstart'].forEach(ev => me.addEventListener(ev, e => e.preventDefault()));
@@ -157,7 +153,6 @@ const NAME = 'Andrean Rajagukguk';
 $('#slot').textContent = NAME;
 $('#nm').textContent = NAME;
 
-/* Floating Elements Generator */
 ['💻', '🎨', '⚡', '🚀', '✨', '🧩'].forEach((e, i) => {
   const b = document.createElement('div');
   b.className = 'fb';
@@ -166,7 +161,6 @@ $('#nm').textContent = NAME;
   $('#fl').appendChild(b);
 });
 
-/* Social Media SVG Icons */
 const igSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.51"></line></svg>';
 const ghSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>';
 const ttSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>';
@@ -183,7 +177,6 @@ $('#soc').innerHTML = SOCIALS.map(s => '<a class="chip" style="text-decoration:n
 const tech = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Figma', 'Git', 'UI/UX', 'Information Systems', 'IT Governance'];
 $('#mqt').innerHTML = [...tech, ...tech].map(t => '<span>' + t + '</span>').join('');
 
-/* Background Star/Particle Canvas */
 const cv = $('#cv'), c2 = cv.getContext('2d'); let pts = [];
 function rs() {
   cv.width = innerWidth; cv.height = innerHeight;
@@ -241,7 +234,6 @@ function onScroll() {
 addEventListener('scroll', onScroll, { passive: true });
 addEventListener('resize', onScroll);
 
-/* Data Keahlian dengan Detail untuk Popup */
 const skillList = [
   ['HTML', 95, 'Hasil AI.'],
   ['CSS', 90, 'Hasil AI.'],
@@ -258,7 +250,6 @@ $('#skl').innerHTML = skillList.map((s, i) => `
   </div>
 `).join('');
 
-/* Data Portfolio Diperluas (Proyek, Pendidikan, Hobi, CV) */
 const GITHUB_USER = 'Andrean24-R';
 const CV_FILE = 'cv/CV-Andrean-Rajagukguk.jpg';
 const repoUrl = name => 'https://github.com/' + GITHUB_USER + (name ? '/' + name : '?tab=repositories');
@@ -281,7 +272,6 @@ const prj = [
 ];
 const gr = ['#0a84ff,#5e5ce6', '#ff375f,#ff9f0a', '#30d158,#0a84ff', '#bf5af2,#ff375f'];
 
-/* ===== SERTIFIKAT (satu kartu, isinya carousel yang bisa digeser) ===== */
 const certs = [
   {
     title: 'Career Talk: Be Seen, Be Known, Be Chosen',
@@ -303,7 +293,6 @@ prj.push(['🏅', 'Sertifikat & Seminar', 'Sertifikat',
   certs[certs.length - 1].img,
   certs.map(c => ({ e: '🏅', t: c.title, d: c.desc, m: [c.issuer, c.date], img: c.img }))]);
 
-/* Carousel sertifikat: scroll-snap (geser di HP, panah / tombol ← → di desktop) */
 function certCarousel(items) {
   const slides = items.map(it => `
     <figure class="cz-slide">
@@ -395,7 +384,6 @@ $('#searchPrj').oninput = e => {
   renderProjects(activeCategory, searchQuery);
 };
 
-/* Pengalaman / Timeline */
 const exp = [
   ['2024', 'Sedang Berkuliah di Universitas Mikroskil', 'Mulai belajar IT dan memiliki sertifikat SAP.'],
   ['2021', 'SMA Santa Maria Tarutung', 'Masuk Jurusan IPA/MIPA, dan pernah ikut dalam pembuatan film dokumenter dan olimpiade informatika.'],
@@ -404,7 +392,6 @@ const exp = [
 ];
 $('#tl').innerHTML = exp.map((e, i) => `<div class="glass rv ${i % 2 ? 'r' : 'l'}"><small>${e[0]}</small><h3>${e[1]}</h3><p>${e[2]}</p></div>`).join('');
 
-/* Testimoni Carousel */
 const ts = [
   ['Kau harus jadi polisi!', 'Mamak'],
   ['Kuliah kedokteran lah kau.', 'Mamak'],
@@ -426,7 +413,6 @@ function showT(i) {
 $$('#dots i').forEach(d => d.onclick = () => showT(+d.dataset.i));
 showT(0); setInterval(() => showT((ti + 1) % ts.length), 5000);
 
-/* Observer Intersection untuk Reveal Animasi & Statistik Counter */
 const io = new IntersectionObserver(es => es.forEach(en => {
   if (!en.isIntersecting) return;
   const t = en.target;
@@ -456,10 +442,8 @@ const io = new IntersectionObserver(es => es.forEach(en => {
 
 $$('.rv').forEach((el, i) => { el.dataset.d = (i % 4) * 90; io.observe(el); });
 
-/* Efek Tilt / Kemiringan Kartu Skill & Statistik */
 $$('.sk, .stat').forEach(applyTilt);
 
-/* Dock Magnification / Efek Dock macOS */
 const dock = $('#dock');
 dock.addEventListener('pointermove', e => $$('#dock a').forEach(a => {
   const r = a.getBoundingClientRect(), d = Math.abs(e.clientX - (r.left + r.width / 2));
@@ -467,7 +451,6 @@ dock.addEventListener('pointermove', e => $$('#dock a').forEach(a => {
 }));
 dock.addEventListener('pointerleave', () => $$('#dock a').forEach(a => a.style.transform = ''));
 
-/* Modal Sheet Handler untuk Proyek, Pendidikan, Hobi, CV, Sertifikat, & Keahlian */
 const sheet = $('#sheet');
 const sList = document.createElement('div'); sList.id = 'sList'; $('#sD').after(sList);
 
@@ -505,14 +488,12 @@ $('#skl').addEventListener('click', e => {
 $('#sC').onclick = () => sheet.classList.remove('open');
 sheet.onclick = e => { if (e.target.id === 'sheet') sheet.classList.remove('open'); };
 
-/* ===== Toast umum ===== */
 let toastTimer;
 function showToast(msg) {
   const t = $('#toast'); t.textContent = msg; t.classList.add('show');
   clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 3600);
 }
 
-/* ===== Pemutar musik: seek, acak, ulang, auto-next, media keys ===== */
 let shuffle = false, repeat = 'all';
 const seek = $('#seek'), tCur = $('#tCur'), tDur = $('#tDur'), shufBtn = $('#shufBtn'), repBtn = $('#repBtn');
 const fmt = s => isFinite(s) ? Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0') : '0:00';
@@ -569,10 +550,8 @@ if ('mediaSession' in navigator) {
 }
 updateTrackInfo();
 
-/* ===== Kursor membesar di elemen interaktif ===== */
 document.addEventListener('pointerover', e => cursor.classList.toggle('big', !!e.target.closest('a, button, .card, .sk, .chip, .playlist-item')));
 
-/* ===== Panah kiri/kanan menggeser carousel sertifikat ===== */
 addEventListener('keydown', e => {
   const tr = $('#czTrack');
   if (!tr || !sheet.classList.contains('open')) return;
@@ -580,13 +559,10 @@ addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft') tr.scrollBy({ left: -tr.clientWidth, behavior: 'smooth' });
 });
 
-/* ===== Esc menutup modal / playlist ===== */
 addEventListener('keydown', e => {
   if (e.key === 'Escape') { sheet.classList.remove('open'); musicWidget.classList.remove('playlist-open'); }
 });
 
-/* ===== Form kontak via Formspree =====
-   Tempelkan URL endpoint Formspree kamu di FORM_ENDPOINT (contoh: https://formspree.io/f/xabcde12) */
 const FORM_ENDPOINT = 'https://formspree.io/f/mzereoav';
 
 $('#frm').onsubmit = async e => {
@@ -623,7 +599,6 @@ $('#frm').onsubmit = async e => {
   btn.disabled = false;
 };
 
-/* ===== Tema (mengikuti sistem, bisa diganti manual) ===== */
 const root = document.documentElement;
 try { const s = localStorage.getItem('theme'); if (s) root.dataset.theme = s; } catch (e) { }
 $('#theme').onclick = () => {
@@ -633,7 +608,6 @@ $('#theme').onclick = () => {
   try { localStorage.setItem('theme', next); } catch (e) { }
 };
 
-/* ===== Tinggi hero mengikuti kartu intro (jarak ke section berikutnya) ===== */
 function fitHero() { measure(); $('.hero').style.height = (innerHeight * 1.1 + $('.intro > div').offsetHeight + 60) + 'px'; onScroll(); }
 fitHero(); addEventListener('resize', fitHero); addEventListener('load', fitHero);
 
